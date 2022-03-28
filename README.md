@@ -12,12 +12,12 @@ We then use the trained models as feature extractors and evaluate on different M
 
 
 ## Pre-train on your own folder of audio files
-Run the following command to pre-train the model on a folder containing .wav files (or .mp3 files when editing `src_ext_audio=".mp3"` in `/datasets/audio.py`). You may need to convert your audio files to the correct sample rate first, before giving it to the encoder (which accepts `18,000Hz` per default).
+Run the following command to pre-train the model on a folder containing .wav files (or .mp3 files when editing `src_ext_audio=".mp3"` in `/datasets/_.py`). You may need to convert your audio files to the correct sample rate first, before giving it to the encoder (which accepts `18,000Hz` per default).
 
 ```
-python preprocess.py --dataset audio --dataset_dir ./directory_containing_audio_files
+python preprocess.py 
 
-python main.py --dataset audio --dataset_dir ./directory_containing_audio_files
+python _.py
 ```
 
 
