@@ -12,7 +12,7 @@ We then use the trained models as feature extractors and evaluate on different M
 
 
 ## Pre-train on your own folder of audio files
-Run the following command to pre-train the model on a folder containing .wav files (or .mp3 files when editing `src_ext_audio=".mp3"` in `/datasets/_.py`). You may need to convert your audio files to the correct sample rate first, before giving it to the encoder (which accepts `18,000Hz` per default).
+Run the following command to pre-train the model on a folder containing .wav files (or .mp3 files). You may need to convert your audio files to the correct sample rate first, before giving it to the encoder (which accepts `18,000Hz` per default).
 
 ```
 python preprocess.py 
@@ -29,7 +29,7 @@ python _.py
 ### 1. Pre-training
 Run the following command to pre-train the model on the MSD dataset.
 ```
-python main.py --dataset msd
+python _.py --dataset msd
 ```
 
 ### 2. Linear evaluation
