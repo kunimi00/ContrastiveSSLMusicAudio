@@ -17,9 +17,8 @@ We then use the trained models as feature extractors and evaluate on different M
 Run the following command to pre-train the model on a folder containing .wav files (or .mp3 files). You may need to convert your audio files to the correct sample rate first, before giving it to the encoder (which accepts `18,000Hz` per default).
 
 ```
-python preprocess.py 
+python _.py 
 
-python _.py
 ```
 
 
