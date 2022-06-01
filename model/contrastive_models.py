@@ -1,16 +1,18 @@
 """
-2021/05/31 Jeong Choi
-
-Contrastive 모델 클래스
+Contrastive algorithms
 - Siamese network
 - CPC network
-
 """
 
-from .audio_encoders import *
-from .emb_aggregators import *
-from .abstract_model import AbstractModel
-from ..util.util_data import *
+import sys
+import os
+SCRIPT_DIR = os.path.dirname(os.path.abspath(__file__))
+sys.path.append(os.path.dirname(SCRIPT_DIR))
+
+from model.audio_encoders import *
+from model.emb_aggregators import *
+from model.abstract_model import AbstractModel
+from util.util_data import *
 
 import torch
 import torch.nn as nn
@@ -20,7 +22,6 @@ from torch.optim.lr_scheduler import ReduceLROnPlateau
 from torchsummary import summary
 
 import numpy as np
-import os
 from tqdm import tqdm
 from glob import glob
 import random

@@ -1,10 +1,11 @@
 import librosa
 import torch, torchaudio
+import torch.nn as nn
 import numpy as np
 
-class SoxEffectTransform(torch.nn.Module):
+class SoxEffectTransform(nn.Module):
     def __init__(self, effects) :
-        super().init()
+        super().__init__()
         self.effects = effects
 
     def forward(self, tensor: torch.Tensor, sample_rate: int):

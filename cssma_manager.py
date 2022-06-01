@@ -1,15 +1,13 @@
-"""
-2021/06/01 Jeong Choi
+import sys
+import os
+SCRIPT_DIR = os.path.dirname(os.path.abspath(__file__))
+sys.path.append(os.path.dirname(SCRIPT_DIR))
 
-SelfSupervisedMusicAudioManager
-- Contrastive self-supervised learning 모델 학습, 추론 기능 수행
+from model.audio_encoders import *
+from model.emb_aggregators import *
+from model.contrastive_models import *
 
-"""
-from .model.audio_encoders import *
-from .model.emb_aggregators import *
-from .model.contrastive_models import *
-
-class SelfSupervisedMusicAudioManager:
+class ContrastiveSelfSupervisionManager:
     def __init__(self, config):
         self.config = config
 

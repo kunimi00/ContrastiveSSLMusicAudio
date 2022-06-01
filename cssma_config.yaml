@@ -1,0 +1,87 @@
+0:
+  VERBOSE: False
+  MODE: 'train'
+  CURR_DATASET: 'FMA_small'      # 'MSD' / 'FMA_small' / 'IRMAS' / 'BEATLES' / 'AOTM'
+  CURR_DATA_SPLIT: 'train'     #  'all' / 'train' / 'valid' / 'test'
+  FULL_DATA_PATH: '/data_ssd/audio_dev/tagging/cssma_data/'
+
+  EXP_INFO: 'my-fma-exp'         # shoud NOT use underbar '_'
+  MODEL_INFO: 'Siamese'     # 'Siamese' / 'CPC' / 'MelTransformer'
+  AUDIO_REPR: 'mel'
+  AUDIO_ENCODER: 'MelConv5by5Enc'
+
+  POS_STRATEGY: 'adjacent'         # 'random' / 'adjacent' / 'self'
+  NEG_STRATEGY: 'inter-track'  # 'inter-track' / 'intra-track'
+  POS_WAV_AUG: True
+  ANCHOR_WAV_AUG: True
+  POS_SPEC_AUG: False 
+  ANCHOR_SPEC_AUG: False 
+  EMB_DIM: 128
+
+  EPOCH_FROM: 0
+  INFONCE_TAO: 0.05  # 0.05 / 1.
+  MAX_AUDIO_LENGTH_SEC: 29
+  SEGMENT_LENGTH_SEC: 3
+  ADJACENT_SPACE_SEC: 0.5
+
+  NUM_CPC_INPUT_STEPS: 4 
+  NUM_CPC_PREDICTIONS: 4 
+
+  BATCH_SIZE: 16
+  NUM_EPOCHS: 2000
+  NUM_WORKERS: 8
+  LR: 0.001
+  STOPPING_LR: 0.0000000001
+  MOMENTUM: 0.9
+  LR_FACTOR: 0.2
+  LR_PATIENCE: 5
+  SAVE_PER_EPOCH: 5
+  LOSS_CHECK_PER: 100
+
+  GPU: 0
+  SAVE_DIR_PATH: './'
+  LOAD_WEIGHT_FROM: null
+
+1:
+  VERBOSE: False
+  MODE: 'train'
+  CURR_DATASET: 'FMA_small'      # 'MSD' / 'FMA_small' / 'IRMAS' / 'BEATLES' / 'AOTM'
+  CURR_DATA_SPLIT: 'train'     #  'all' / 'train' / 'valid' / 'test'
+  FULL_DATA_PATH: '/data_ssd/audio_dev/tagging/cssma_data/'
+
+  EXP_INFO: 'my-fma-exp'         # shoud NOT use underbar '_'
+  MODEL_INFO: 'CPC'     # 'Siamese' / 'CPC' / 'MelTransformer'
+  AUDIO_REPR: 'mel'
+  AUDIO_ENCODER: 'MelConv5by5Enc'
+
+  POS_STRATEGY: 'random'         # 'random' / 'adjacent' / 'self'
+  NEG_STRATEGY: 'inter-track'  # 'inter-track' / 'intra-track'
+  POS_WAV_AUG: True
+  ANCHOR_WAV_AUG: True
+  POS_SPEC_AUG: False 
+  ANCHOR_SPEC_AUG: False 
+  EMB_DIM: 128
+
+  EPOCH_FROM: 0
+  INFONCE_TAO: 0.05  # 0.05 / 1.
+  MAX_AUDIO_LENGTH_SEC: 29
+  SEGMENT_LENGTH_SEC: 3
+  ADJACENT_SPACE_SEC: 0.5
+
+  NUM_CPC_INPUT_STEPS: 4 
+  NUM_CPC_PREDICTIONS: 4 
+
+  BATCH_SIZE: 16
+  NUM_EPOCHS: 2000
+  NUM_WORKERS: 8
+  LR: 0.001
+  STOPPING_LR: 0.0000000001
+  MOMENTUM: 0.9
+  LR_FACTOR: 0.2
+  LR_PATIENCE: 5
+  SAVE_PER_EPOCH: 5
+  LOSS_CHECK_PER: 100
+
+  GPU: 1
+  SAVE_DIR_PATH: './'
+  LOAD_WEIGHT_FROM: null

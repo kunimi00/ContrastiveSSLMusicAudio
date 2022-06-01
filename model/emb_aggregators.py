@@ -1,8 +1,6 @@
 """
-2021/06/10 Jeong Choi
 Embedding Sequence Aggregation Modules. 
 - CPC module
-- Transformer module
 """
 import torch
 import torch.nn as nn

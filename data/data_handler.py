@@ -1,5 +1,8 @@
-from ..util.util_data import *
-from ..util.util_audio import *
+import os, sys
+sys.path.append(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
+
+from util.util_data import *
+from util.util_audio import *
 import torch, torchaudio
 import os, random
 
@@ -9,11 +12,11 @@ class DataInfoHandler(object):
         if config.params['ANCHOR_WAV_AUG'] or config.params['POS_WAV_AUG']:
             _audio_repr = 'wav'
         else:
-            if config.params['AUDIO_REPR _PRECOMPUTED']:
+            if config.params['AUDIO_REPR_PRECOMPUTED']:
                 _audio_repr = config.params['AUDIO_REPR']
             else:
                 _audio_repr = 'wav'
-        print ('_audio_repr :', _audio_repr)
+        print('reading audio_repr :', _audio_repr)
 
         if config.params['CURR_DATA_SPLIT'] == 'all':
             tr_tr_ids = load_list_from_txt(os.path.join(config.params['CURR_INFO_PATH'], config.params['CURR_DATASET'] + '_train_tr_id_list.txt'))
@@ -41,7 +44,7 @@ class DataInfoHandler(object):
             self.tr_id_list = load_list_from_txt(os.path.join(config.params['CURR_INFO_PATH'], 
                                                               config.params['CURR_DATASET'] + '_' + config.params['CURR_DATA_SPLIT']+'_tr_id_list.txt'))
             self.tr_file_path_list = load_list_from_txt(os.path.join(config.params['CURR_INFO_PATH'],
-                                                                     config.params['CURR_DATASET'] + '_' + config.params['CURR_DATA_ SPLIT'] + '_tr_' + _audio_repr + '_path_list.txt'))
+                                                                     config.params['CURR_DATASET'] + '_' + config.params['CURR_DATA_SPLIT'] + '_tr_' + _audio_repr + '_path_list.txt'))
 
         
 
@@ -87,12 +90,12 @@ class AudioHandler(object) :
     def load_single_wav_tensor(self, tr_path, is_full):
         if is_full:
             # return full audio
-            _info = torchaudio.backend.sox_iobackend.info(os.path.join(self.config.params['AUDIO DATA PATH'], tr_path))
+            _info = torchaudio.backend.sox_io_backend.info(os.path.join(self.config.params ['AUDIO_DATA_PATH'], tr_path))
             if self.config.params['MAX_AUDIO_LENGTH_SEC'] is not None:
                 init_sec = round(random.uniform(0, _info.num_frames / _info.sample_rate - self.config.params['MAX_AUDIO_LENGTH_SEC']), 2)
                 resample_trim_effect = [
                     ['remix', '-'],
-                    ['trim', str(init_sec), str(self.config.params[ 'MAX _AUDIO_LENGTH SEC' ])],
+                    ['trim', str(init_sec), str(self.config.params['MAX_AUDIO_LENGTH_SEC'])],
                     ['rate', str(self.config.params['SR'])],
                 ]
                 y, sr=self.torch_load_resampled_file(os.path.join(self.config.params['AUDIO_DATA_PATH'], tr_path), resample_trim_effect)
@@ -108,7 +111,7 @@ class AudioHandler(object) :
             init_sec = round(random.uniform(0, _info.num_frames / _info.sample_rate - self.config.params['SEGMENT_LENGTH SEC']), 2)
             resample_crop_effect = [
                 ['remix', '-']
-                ['trim', str(init_sec), str(self.config.params[' SEGMENT_LENGTH_SEC'])],
+                ['trim', str(init_sec), str(self.config.params['SEGMENT_LENGTH_SEC'])],
                 ['rate', str(self.config.params['SR'])],
             ]
             y,sr= self.torch_load_resampled_file(os.path.join(self.config.params['AUDIO_DATA_PATH'], tr_path), resample_crop_effect)
@@ -185,6 +188,7 @@ class AudioHandler(object) :
             ]
             anc_y, sr = self.torch_load_resampled_file(os.path.join(self.config.params['AUDIO_DATA_PATH'], tr_path), anc_resample_crop_effect)
             pos_y, sr = self.torch_load_resampled_file(os.path.join(self.config.params['AUDIO_DATA_PATH'], tr_path), pos_resample_crop_effect)
+            
             if random.randint(0,1) == 0:
                 ys = [anc_y, pos_y]
             else:
