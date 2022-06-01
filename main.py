@@ -5,13 +5,9 @@ import yaml
 
 from cssma_manager import ContrastiveSelfSupervisionManager
 from cssma_config import ContrastiveSelfSupervisionConfig
-from data.data_config import DataConfig
 from data.data_manager import AudioManager
 
 def run(config):
-    # data_config = DataConfig()
-    # print(vars(args))
-    # data_config.set_params(vars(args))
     audio_manager = AudioManager(config)
 
     train_config = ContrastiveSelfSupervisionConfig(config)
@@ -74,13 +70,12 @@ if __name__ == '__main__':
     parser.add_argument('--LOAD_WEIGHT_FROM', type=str, default=None)
 
     config = parser.parse_args()
-    print(config)
     if config.USE_YAML_CONFIG is not None:
         with open('./cssma_config.yaml', 'r') as f:
             _hparam_dict = yaml.load(f, Loader=yaml.FullLoader)
             hparam_dict = _hparam_dict[config.USE_YAML_CONFIG]
         config.__dict__.update(hparam_dict)
-    print(config)
+    
     run(config)
 
 

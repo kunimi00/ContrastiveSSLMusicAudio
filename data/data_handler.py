@@ -1,8 +1,8 @@
 import os, sys
 sys.path.append(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 
-from util.util_data import *
-from util.util_audio import *
+from utils.util_data import *
+from utils.util_audio import *
 import torch, torchaudio
 import os, random
 

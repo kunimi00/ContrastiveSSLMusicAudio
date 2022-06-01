@@ -7,7 +7,7 @@ from torch.utils.data import DataLoader
 
 from data.data_handler import AudioHandler, DataInfoHandler
 from data.data_config import DataConfig
-from util.util_audio import SoxEffectTransform
+from utils.util_audio import SoxEffectTransform
 
 import torch
 import random
@@ -153,7 +153,7 @@ class AudioTorchDataset(Dataset):
                     anc = torch.transpose(anc, 0, 1)
                     return anc, curr_tr_id
         except Exception as e:
-            print(sys.exc_info()[2])
+            print("".join(traceback.format_tb(e.__traceback__)))
             return None
 
     def __len__(self):

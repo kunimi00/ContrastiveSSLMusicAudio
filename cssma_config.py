@@ -5,7 +5,7 @@ sys.path.append(os.path.dirname(SCRIPT_DIR))
 
 import yaml
 from pathlib import Path
-from util.util_path import *
+from utils.util_path import *
 
 class ContrastiveSelfSupervisionConfig(object):
     def __init__(self, args):

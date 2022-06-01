@@ -12,7 +12,7 @@ sys.path.append(os.path.dirname(SCRIPT_DIR))
 from model.audio_encoders import *
 from model.emb_aggregators import *
 from model.abstract_model import AbstractModel
-from util.util_data import *
+from utils.util_data import *
 
 import torch
 import torch.nn as nn

@@ -17,7 +17,7 @@ IS_POS_SAMPLING : True
 POS_STRATEGY : 'random'  # self / adjacent / random / random-wo-repl
 POS_WAV_AUG : True
 POS_SPEC_AUG : True
-ADJECENT_SPACE_SEC : 0.1
+ADJACENT_SPACE_SEC : 0.5
 IS_FULL_AUDIO : False
 MAX_AUDIO_LENGTH_SEC : 29
 TS_LOW : 0.8
