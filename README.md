@@ -18,7 +18,7 @@ We then use the trained models as feature extractors and evaluate on different M
 ### 1. Pre-training
 Run the following command to pre-train the model on the FMA_small dataset.
 ```
-python main.py --USE_YAML_CONFIG
+python main.py --USE_YAML_CONFIG 0
 ```
 
 ### 2. Inference audio embedding
