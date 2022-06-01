@@ -27,7 +27,7 @@ To test a trained model, make sure to set the `LOAD_WEIGHT_FROM`, or specify it 
 python main.py --MODE inference --LOAD_WEIGHT_FROM SomeCheckpointPath
 ```
 
-### 3. Linear evaluation
+## Linear evaluation
 To be updated.
 
 
