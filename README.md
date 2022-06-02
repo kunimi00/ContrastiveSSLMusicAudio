@@ -10,7 +10,7 @@ Our experiments are set up using contrastive learning algorithms with variations
 
 We then use the trained models as feature extractors and evaluate on different MIR tasks, where each task represents a certain abstraction level of music audio information. We compare the self-supervised embeddings with MFCCs which has long been a solid baseline feature in audio classification tasks.
 
-## Results
+## Transfer Learning (Linear Probing) Results
 <img width="844" alt="results" src="https://user-images.githubusercontent.com/7988421/160309643-f9b63244-cf19-4480-a494-2b7faad76b23.png">
 
 
